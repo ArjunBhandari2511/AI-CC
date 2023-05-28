@@ -1,0 +1,24 @@
+trigger calc on Calculator__c (before insert) {
+for(Calculator__c s : trigger.new)
+ {
+ if(trigger.isInsert)
+ {
+ if(s.operator__c=='/')
+ {
+ s.result__c=s.value1__c / s.value2__c;
+ }
+ else if(s.operator__c=='*')
+ {
+ s.result__c=s.value1__c * s.value2__c;
+ }
+ else if(s.operator__c=='-')
+ {
+ s.result__c=s.value1__c - s.value2__c;
+ }
+ else if(s.operator__c=='+')
+ {
+ s.result__c=s.value1__c + s.value2__c;
+ }
+ }
+ }
+}
